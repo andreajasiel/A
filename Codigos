@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amsthm}
+
+\newtheorem{theorem}{Teorema}[section]
+
+\begin{document}
+
+\section{Teorema de los Números Primos - Resumen de la Demostración (Análisis Complejo)}
+
+\begin{theorem}[Teorema de los Números Primos]
+La función de conteo de números primos $\pi(x)$, que denota la cantidad de números primos menores o iguales a $x$, satisface:
+$$\lim_{x \to \infty} \frac{\pi(x)}{x/\ln(x)} = 1.$$
+Equivalentemente, $\pi(x) \sim \frac{x}{\ln(x)}$ cuando $x \to \infty$.
+\end{theorem}
+
+\begin{proof}[Resumen de la Demostración (Utilizando la Función Zeta de Riemann)]
+La demostración original del Teorema de los Números Primos, desarrollada independientemente por Hadamard y de la Vallée Poussin, se basa en las profundas propiedades de la función zeta de Riemann $\zeta(s)$. A continuación, se presenta un resumen de los puntos clave:
+
+\begin{enumerate}
+    \item \textbf{Función Zeta de Riemann:} La función zeta se define para $\text{Re}(s) > 1$ como:
+    $$\zeta(s) = \sum_{n=1}^{\infty} \frac{1}{n^s} = \prod_{p \text{ primo}} \left(1 - \frac{1}{p^s}\right)^{-1}.$$
+    Esta identidad (producto de Euler) establece una conexión fundamental entre la función zeta y la distribución de los números primos.
+
+    \item \textbf{Relación con la Función de Conteo de Primos:} El Teorema de los Números Primos es equivalente a la siguiente afirmación sobre la función de Chebyshev $\vartheta(x) = \sum_{p \le x} \ln(p)$:
+    $$\lim_{x \to \infty} \frac{\vartheta(x)}{x} = 1.$$
+    La función zeta y $\vartheta(x)$ están interrelacionadas a través de identidades que involucran la transformada de Mellin.
+
+    \item \textbf{Extensión Meromorfa y Polos:} La función zeta puede ser extendida a una función meromorfa en todo el plano complejo, con un único polo simple en $s=1$. Las propiedades analíticas de esta extensión son cruciales.
+
+    \item \textbf{No Existencia de Ceros en $\text{Re}(s) = 1$:} Un paso esencial en la demostración es probar que $\zeta(1 + it) \neq 0$ para cualquier número real $t$. Esta propiedad, demostrada mediante técnicas de análisis complejo, es fundamental para obtener la estimación asintótica de $\vartheta(x)$.
+
+    \item \textbf{Teorema de Inversión de Perron:} Este teorema del análisis complejo permite expresar $\vartheta(x)$ como una integral de contorno que involucra la función zeta y su derivada logarítmica $-\frac{\zeta'(s)}{\zeta(s)}$.
+
+    \item \textbf{Estimación de la Integral de Contorno:} La demostración culmina con la cuidadosa evaluación asintótica de esta integral de contorno. Utilizando el hecho de que $\zeta(1 + it) \neq 0$ y las propiedades del polo de $\zeta(s)$ en $s=1$, se demuestra que el término dominante en la integral conduce a $\lim_{x \to \infty} \frac{\vartheta(x)}{x} = 1$, lo que implica el Teorema de los Números Primos.
+\end{enumerate}
+
+\textbf{Nota:} La demostración "elemental" posterior de Selberg y Erdős, aunque no utiliza directamente el análisis complejo, es también intrincada y se basa en desigualdades y métodos combinatorios dentro de la teoría de números.
+
+Para una comprensión detallada de la demostración, se recomienda consultar textos avanzados sobre teoría analítica de números como "An Introduction to the Theory of Numbers" de Hardy y Wright, o "Multiplicative Number Theory I: Classical Theory" de Montgomery y Vaughan.
+\end{proof}
+
+
+
+\end{document}
